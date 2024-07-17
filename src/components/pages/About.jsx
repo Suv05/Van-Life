@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import aboutImg from "../../assets/images/about-hero.png"
 function About({}) {
   return (
     <>
       <div>
         <div>
           <img
-            src="src/assets/images/about-hero.png"
+            src={aboutImg}
             alt="about-image"
             style={{ width: "100vw" }}
           />
