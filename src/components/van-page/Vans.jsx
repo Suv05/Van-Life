@@ -11,7 +11,7 @@ import Spinner from "../pages/Spinner";
 
 export async function loader() {
   try {
-    const data = await fetchApi("/api/vans"); // Ensure you await the fetchApi function
+    const data = fetchApi("/api/vans"); // Ensure you await the fetchApi function
     return defer({ vans: data.vans });
   } catch (error) {
     throw new Error("Failed to fetch vans data");
@@ -81,7 +81,11 @@ function Vans() {
               <div className="grid grid-cols-2 lg:grid-cols-3 mb-8">
                 {Array.isArray(filteredVans) && filteredVans.length > 0 ? (
                   filteredVans.map((van) => (
-                    <Link to={van.id} key={van.id} state={{ type: selectedType }}>
+                    <Link
+                      to={van.id}
+                      key={van.id}
+                      state={{ type: selectedType }}
+                    >
                       <div className="mx-5 mb-7">
                         <img
                           src={van.imageUrl}
